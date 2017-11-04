@@ -1,0 +1,36 @@
+{
+  "name": "boilerplate-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "5.1.1",
+    "css-loader": "0.28.7",
+    "file-loader": "1.1.5",
+    "html-webpack-plugin": "2.30.1",
+    "img-loader": "2.0.0",
+    "json-loader": "0.5.7",
+    "path": "0.12.7",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "style-loader": "0.19.0",
+    "url-loader": "0.6.2",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.4"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "build:dev": "webpack -d",
+    "restart": "npm stop && npm start",
+    "start": "bash -c 'echo \"starting react server\" >> output-npm-scripts.log 2>&1 && webpack-dev-server --public >> output-npm-scripts.log 2>&1 & disown'",
+    "stop": "bash -c 'echo \"stopping react server\" >> output-npm-scripts.log 2>&1 && pkill --signal SIGINT node >> output-npm-scripts.log 2>&1 & disown'"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://server_express"
+    }
+  }
+}
